@@ -1,0 +1,12 @@
+# data/test_data.yaml
+
+# 这里的短横线 (-) 代表列表中的一个元素（相当于 Python 的 list item）
+- device_name: "Pixel 6"
+  device_version: "v1.0"
+
+- device_name: "iPhone 15"
+  device_version: "v2.0"
+
+# 你甚至可以再加一个尝试一下
+- device_name: "Xiaomi 14"
+  device_version: "HyperOS"

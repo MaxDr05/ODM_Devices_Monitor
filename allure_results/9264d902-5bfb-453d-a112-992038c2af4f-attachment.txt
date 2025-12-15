@@ -1,0 +1,23 @@
+INFO     sqlalchemy.engine.Engine:base.py:1846 SELECT DATABASE()
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:1846 SELECT @@sql_mode
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:1846 SELECT @@lower_case_table_names
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:2702 BEGIN (implicit)
+INFO     sqlalchemy.engine.Engine:base.py:1846 DESCRIBE `odm_test`.`users`
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:1846 DESCRIBE `odm_test`.`devices`
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:1846 DESCRIBE `odm_test`.`products`
+INFO     sqlalchemy.engine.Engine:base.py:1846 [raw sql] {}
+INFO     sqlalchemy.engine.Engine:base.py:2708 COMMIT
+INFO     sqlalchemy.engine.Engine:base.py:2702 BEGIN (implicit)
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO users (username) VALUES (%(username)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [generated in 0.00006s] {'username': 'trap_user'}
+INFO     sqlalchemy.engine.Engine:base.py:1846 SELECT users.id AS users_id, users.username AS users_username, users.created_at AS users_created_at 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s
+INFO     sqlalchemy.engine.Engine:base.py:1846 [generated in 0.00006s] {'username_1': 'trap_user', 'param_1': 1}
+INFO     sqlalchemy.engine.Engine:base.py:2705 ROLLBACK

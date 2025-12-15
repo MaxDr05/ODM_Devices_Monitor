@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # --- 1. 测试服务 (生产者) ---
+  odm-test:
+    build: .
+    environment:
+      - DB_HOST=db
+      - API_BASE_URL=http://mock-server
+    depends_on:
+      db:
+        condition: service_healthy
+      mock-server:
+        condition: service_started
+    # 【新增】关键修改：把容器里生成报告的目录，映射到宿主机，方便共享
+    # 注意：Dockerfile 里我们写的 CMD 是 --alluredir=./report/tmp
+    # 所以我们要把容器里的 /app/report/tmp 挂载出来
+    volumes:
+      - ./allure_results:/app/report/tmp
+
+  # --- 2. 数据库服务 ---
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=odm_test
+    volumes:
+      - ./data_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      timeout: 20s
+      retries: 10
+
+  # --- 3. Mock 服务 ---
+  mock-server:
+    image: kennethreitz/httpbin
+    ports:
+      - "8080:80"
+
+  # --- 4. 【新增】Allure 报告服务 (消费者) ---
+  allure:
+    # 使用官方推荐的 Docker 镜像
+    image: frankescobar/allure-docker-service
+    environment:
+      # 开启自动检测：只要有新结果，马上刷新报告
+      - CHECK_RESULTS_EVERY_SECONDS=3
+      - KEEP_HISTORY=1 # 保留历史记录
+    ports:
+      - "5050:5050" # 我们可以通过浏览器访问 5050 端口看报告
+    volumes:
+      # 【关键】这里挂载的路径，必须和上面 odm-test 挂载的是同一个宿主机目录！
+      # 这样 odm-test 产出的数据，allure 才能拿到。
+      - ./allure_results:/app/allure-results

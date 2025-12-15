@@ -1,0 +1,11 @@
+INFO     sqlalchemy.engine.Engine:base.py:2702 BEGIN (implicit)
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO users (username) VALUES (%(username)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.04225s ago] {'username': 'owner_u1'}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.003687s ago] {'sn': 'device_001', 'owner_id': 10004}
+INFO     sqlalchemy.engine.Engine:base.py:1846 SELECT devices.id AS devices_id, devices.sn AS devices_sn, devices.owner_id AS devices_owner_id, devices.created_at AS devices_created_at 
+FROM devices 
+WHERE devices.sn = %(sn_1)s 
+ LIMIT %(param_1)s
+INFO     sqlalchemy.engine.Engine:base.py:1846 [generated in 0.00006s] {'sn_1': 'device_001', 'param_1': 1}
+INFO     sqlalchemy.engine.Engine:base.py:2705 ROLLBACK

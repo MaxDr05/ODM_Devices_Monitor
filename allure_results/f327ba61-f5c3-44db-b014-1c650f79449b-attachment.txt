@@ -1,0 +1,14 @@
+INFO     sqlalchemy.engine.Engine:base.py:2702 BEGIN (implicit)
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO users (id, username) VALUES (%(id)s, %(username)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [generated in 0.00005s] {'id': 10000, 'username': 'Alexander Hanson'}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [generated in 0.00005s] {'sn': 'SKU_2025_000', 'owner_id': 10000}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.0005482s ago] {'sn': 'SKU_2025_001', 'owner_id': 10000}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.0009515s ago] {'sn': 'SKU_2025_002', 'owner_id': 10000}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.001223s ago] {'sn': 'SKU_2025_003', 'owner_id': 10000}
+INFO     sqlalchemy.engine.Engine:base.py:1846 INSERT INTO devices (sn, owner_id) VALUES (%(sn)s, %(owner_id)s)
+INFO     sqlalchemy.engine.Engine:base.py:1846 [cached since 0.00152s ago] {'sn': 'SKU_2025_004', 'owner_id': 10000}
+INFO     sqlalchemy.engine.Engine:base.py:2705 ROLLBACK
