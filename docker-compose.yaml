@@ -35,7 +35,7 @@ services:
   mock-server:
     image: kennethreitz/httpbin
     ports:
-      - "8080:80"
+      - "8090:80"
 
   # --- 4. 【新增】Allure 报告服务 (消费者) ---
   allure:
