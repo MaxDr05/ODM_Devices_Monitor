@@ -24,6 +24,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=odm_test
+      - MYSQL_ROOT_HOST= '%'
     volumes:
       - ./data_mysql:/var/lib/mysql
     healthcheck:
