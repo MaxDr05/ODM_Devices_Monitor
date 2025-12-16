@@ -53,3 +53,5 @@ services:
       # 【关键】这里挂载的路径，必须和上面 odm-test 挂载的是同一个宿主机目录！
       # 这样 odm-test 产出的数据，allure 才能拿到。
       - ./allure_results:/app/allure-results
+volumes:
+  db_data:
