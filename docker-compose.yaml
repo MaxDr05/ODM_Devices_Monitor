@@ -22,9 +22,9 @@ services:
   db:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=odm_test
-      - MYSQL_ROOT_HOST="%"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: odm_test
+      MYSQL_ROOT_HOST: '%'
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
